@@ -24,21 +24,11 @@ class App extends Component {
     return Math.floor(positiveFeedbackPercentage);
   };
 
-  upValueGood = e => {
+  upValueState = objKey => {
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
-
-  upValueNeutral = e => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-
-  upValueBad = e => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
+      return {
+        [objKey]: prevState[objKey] + 1,
+      };
     });
   };
 
@@ -59,9 +49,8 @@ class App extends Component {
 
           <ContainerLeaveFeedback
             title={'Please leave feedback'}
-            onupValueGood={this.upValueGood}
-            onupValueNeutral={this.upValueNeutral}
-            onupValueBad={this.upValueBad}
+            onupValue={this.upValueState}
+            stateKeys={Object.keys(this.state)}
           />
         </WrapStatisticWithFeedback>
       </MainBody>

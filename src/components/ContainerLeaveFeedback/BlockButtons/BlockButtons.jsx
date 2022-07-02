@@ -1,18 +1,16 @@
 import React from 'react';
 import { ButtonsWrap, Button, ButtonText } from './BlockButtons.styled';
 
-const BlockButtons = ({ upValueGood, upValueNeutral, upValueBad }) => {
+const BlockButtons = ({ upValue, stateKeys }) => {
   return (
     <ButtonsWrap>
-      <Button onClick={upValueGood} type="button">
-        <ButtonText>Good</ButtonText>
-      </Button>
-      <Button onClick={upValueNeutral} type="button">
-        <ButtonText>Neutral</ButtonText>
-      </Button>
-      <Button onClick={upValueBad} type="button">
-        <ButtonText>Bad</ButtonText>
-      </Button>
+      {stateKeys.map(key => {
+        return (
+          <Button key={key} onClick={() => upValue(key)} type="button">
+            <ButtonText>{key}</ButtonText>
+          </Button>
+        );
+      })}
     </ButtonsWrap>
   );
 };

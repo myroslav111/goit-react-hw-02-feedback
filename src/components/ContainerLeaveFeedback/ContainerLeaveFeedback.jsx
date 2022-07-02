@@ -4,17 +4,15 @@ import { WrapLeaveFeedback, Title } from './ContainerLeaveFeedback.styled';
 
 const ContainerLeaveFeedback = ({
   title,
-  onupValueGood,
-  onupValueNeutral,
-  onupValueBad,
+  onupValue,
+  stateKeys,
 }) => {
   return (
     <WrapLeaveFeedback>
       <Title>{title}</Title>
       <BlockButtons
-        upValueGood={onupValueGood}
-        upValueNeutral={onupValueNeutral}
-        upValueBad={onupValueBad}
+        upValue={onupValue}
+        stateKeys={stateKeys}
       />
     </WrapLeaveFeedback>
   );
